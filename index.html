@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunja Creatief | Kunst & Cursussen door Saskia Vos</title>
+    <link rel="icon" type="image/png" href="images/logo.png" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#ede574',
+                            amber: '#f9d423',
+                            orange: '#fc913a',
+                            red: '#d63031',
+                            darkred: '#8c1414',
+                            cream: '#fdfbf7',
+                            clay: '#d97706',
+                            charcoal: '#1f2937'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fef3c7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d63031;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8c1414;
+        }
+
+        /* Clay Texture / Glass backdrop effects */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(140, 20, 20, 0.82) 0%, rgba(214, 48, 49, 0.65) 50%, rgba(252, 145, 58, 0.75) 100%);
+        }
+
+        /* Subtle animated art shimmer */
+        @keyframes artGlow {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.02) rotate(0.5deg); }
+        }
+        .art-glow:hover {
+            animation: artGlow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-gray-800 font-sans antialiased selection:bg-brand-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- FLOATING QUICK ACTIONS -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <a href="https://www.facebook.com/saskia.vos.167" target="_blank" rel="noopener noreferrer" 
+           class="w-12 h-12 bg-brand-darkred hover:bg-brand-red text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110"
+           title="Volg Saskia op Facebook">
+            <i class="fab fa-facebook-f text-lg"></i>
+        </a>
+        <a href="https://www.google.com/maps/place/Thorbeckestraat+81+Alphen+aan+den+Rijn" target="_blank" rel="noopener noreferrer"
+           class="w-12 h-12 bg-brand-orange hover:bg-amber-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110"
+           title="Atelier Locatie op Google Maps">
+            <i class="fas fa-location-dot text-lg"></i>
+        </a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="scrollTopBtn"
+                class="w-12 h-12 bg-gray-900/80 hover:bg-gray-900 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 pointer-events-none">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <header id="mainNav" class="sticky top-0 z-50 transition-all duration-300 bg-brand-darkred text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Name -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-full bg-brand-gold flex items-center justify-center text-brand-darkred font-serif font-bold text-2xl shadow-inner transform group-hover:rotate-180 transition-transform duration-300">
+                        <image src="images/logo.png" alt="Dunja Creatief Logo" class="w-8 h-8 object-contain">
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-white block leading-none">Dunja Creatief</span>
+                        <span class="text-xs tracking-widest text-brand-gold uppercase font-medium">Saskia Vos Atelier</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium">
+                    <a href="#home" class="nav-link px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Home</a>
+                    <a href="#overMij" class="nav-link px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Over Mij</a>
+                    <a href="#verkoop" class="nav-link px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Collectie</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-brand-gold text-brand-darkred font-semibold hover:bg-white transition-all shadow-md transform hover:-translate-y-0.5">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none">
+                    <i class="fas fa-bars text-2xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-darkred border-t border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-lg hover:bg-white/10 text-lg">Home</a>
+            <a href="#overMij" class="mobile-nav-link block px-4 py-3 rounded-lg hover:bg-white/10 text-lg">Over Mij</a>
+            <a href="#verkoop" class="mobile-nav-link block px-4 py-3 rounded-lg hover:bg-white/10 text-lg">Collectie</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg bg-brand-gold text-brand-darkred font-bold text-center mt-4">Contact Opnemen</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
+        <!-- Background Artful Image Layer with Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed transform scale-105" 
+             style="background-image: url('images/verkoopCard.JPG'); filter: brightness(0.5) contrast(1.2);">
+        </div>
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 py-24 text-center space-y-8">
+            <div class="relative w-fit mx-auto group">
+                <div class="absolute top-0 left-0 right-0 bottom-0 rounded-full bg-black/70 blur-3xl transform scale-100 group-hover:scale-100"></div>
+                
+                <img src="images/new_dunja.png" 
+                    alt="Dunja Creatief Title" 
+                    class="relative z-10 w-256 h-128 object-contain mx-auto block" />
+
+                <img id="rotating-logo" 
+                    src="images/logo.png" 
+                    alt="Dunja Creatief Logo" 
+                    class="absolute top-[8%] left-[36.2%] -translate-x-1/2 -translate-y-1/2 w-24 h-24 object-contain z-30 transition-transform duration-1000 ease-out mx-auto" />
+            </div>
+            <!-- <div class="relative w-fit mx-auto group">
+
+                <img id="rotating-logo" 
+                    src="images/logo.png" 
+                    alt="Dunja Creatief Logo" 
+                    class="relative z-11 w-24 h-24 object-contain mx-auto transition-transform duration-1000 ease-out" />
+
+                <img src="images/new_dunja.png" 
+                    alt="Dunja Creatief Title" 
+                    class="relative z-10 w-256 h-128 object-contain mx-auto" />
+            </div> -->
+
+            <p class="text-xl sm:text-2xl font-light max-w-3xl mx-auto text-yellow-100/90 leading-relaxed">
+                Unieke ruimtelijke kunstwerken, kleurrijke schilderijen en keramiek door Saskia Vos.
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#verkoop" class="px-8 py-4 rounded-full bg-brand-gold text-brand-darkred font-bold text-lg hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl flex items-center space-x-2">
+                    <i class="fas fa-store"></i>
+                    <span>Bekijk Collectie</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Decorative Bottom Curve -->
+        <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-brand-cream to-transparent"></div>
+    </section>
+
+    <!-- QUICK CATEGORY CARDS SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Card 1 -->
+            <a href="#overMij" class="group bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-amber-100 flex flex-col justify-between transform hover:-translate-y-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-14 h-14 rounded-xl bg-amber-100 text-brand-darkred flex items-center justify-center text-2xl group-hover:bg-brand-darkred group-hover:text-white transition-colors">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 group-hover:text-brand-red transition-colors">Over Saskia</h3>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider">Passie & Achtergrond</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Lees over het ontstaan van Dunja Creatief, de unieke zelfontwikkelde klei 'Walskia' en exposities door het land.
+                </p>
+                <span class="inline-flex items-center text-brand-red font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                    Lees biografie <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </span>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="#verkoop" class="group bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-amber-100 flex flex-col justify-between transform hover:-translate-y-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-14 h-14 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center text-2xl group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 group-hover:text-brand-orange transition-colors">Collectie</h3>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider">Originele Kunstwerken</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Bekijk beelden van Walskia, keramieke potten, wandobjecten en betoverende schilderijen. Met directe prijsopgave.
+                </p>
+                <span class="inline-flex items-center text-brand-orange font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                    Naar Galerie <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- OVER MIJ (ABOUT SECTION) -->
+    <section id="overMij" class="py-24 bg-gradient-to-b from-brand-cream via-amber-50/50 to-brand-cream relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-darkred font-semibold text-sm tracking-widest uppercase">Kunstenares Saskia Vos</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mt-2">Over Mij & Dunja Creatief</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Artist Portrait Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-white">
+                        <img src="images/Saskia.jpg" 
+                             alt="Saskia Vos" class="w-full h-[450px] object-cover object-top hover:scale-105 transition-transform duration-500">
+                        <div class="p-6 bg-brand-darkred text-white">
+                            <h3 class="font-serif text-2xl font-bold">Saskia Vos</h3>
+                            <p class="text-brand-gold text-sm font-medium">Oprichtster & Beeldend Kunstenaar (geboren 1966)</p>
+                        </div>
+                    </div>
+                    <!-- Decorative backdrop shape -->
+                    <div class="absolute -bottom-6 -right-6 w-full h-full bg-brand-gold/30 rounded-3xl -z-0"></div>
+                </div>
+
+                <!-- Text Content Grid -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-white p-8 rounded-2xl shadow-md border border-amber-100 space-y-4">
+                        <h3 class="font-serif text-2xl font-bold text-brand-darkred flex items-center">
+                            <i class="fas fa-heart text-brand-orange mr-3"></i> Creatieve Ontwikkeling & Jeugd
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ik ben Saskia Vos, geboren in 1966 in Naaldwijk. 
+                            Ik heb mijn jeugd doorgebracht op Curaçao, daar is ook de basis gelegd voor mijn creatieve ontwikkeling. 
+                            Ik ben opgevoed in een creatief en kunstzinnig gezin. In Nederland ben ik opgeleid aan de Vrije Pedagogische Akademie te Zeist. 
+                            Dat is een opleiding voor basisschool leerkracht met een antroposofische achtergrond. 
+                            Na een aantal jaren op een Vrije School les gegeven te hebben, heb ik een opleiding op het gebied van handvaardigheid gedaan en vele cursussen gevolgd 
+                            in tekenen en schilderen. Ook heb ik een aantal jaren kunstgeschiedenis gestudeerd. Gedurende de tijd dat ik in Limburg gevestigd was, 
+                            ben ik handvaardigheid lessen gaan geven op een creativiteitscentrum. Zo heb ik vele cursussen en workshops aan volwassenen en kinderen gegeven. 
+                            Daarnaast heb ik veel eigen werk gemaakt voor exposities en kunstmarkten en heb ik tevens in opdracht gewerkt. 
+                            Naast mijn kunstzinnige ontplooiing heb ik cursussen gevolgd op het gebied van Reiki, Healing en vele boeken gelezen op dat gebied. 
+                            Na mijn verhuizing naar de Randstad heb ik mij een aantal jaar volledig gericht op de kunst en mij verder in dat vak ontwikkeld. 
+                            Ook heb ik een jaar Kunstzinnige Therapie gestudeerd.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Dunja Card -->
+                        <div class="bg-amber-50/80 p-6 rounded-2xl border border-amber-200 space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center font-bold">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-bold text-gray-900">Dunja Creatief</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Vanaf najaar 2010 ben ik begonnen met mijn eigen winkel en atelier/lesruimte in het Oude Dorp van Leiderdorp. 
+                                Later is het atelier verhuisd naar het Bizetpad 1 in Leiden. 
+                                Hier gaf ik les aan volwassenen en kinderen in de vorm van cursussen en workshops/feestjes. 
+                                Tegenwoordig geef ik enkel nog les op aanvraag en in kleine groepen in mijn atelier in Alphen aan den Rijn.
+                            </p>
+                        </div>
+                        
+                        <!-- Walskia Card -->
+                        <div class="bg-amber-50/80 p-6 rounded-2xl border border-amber-200 space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center font-bold">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-bold text-gray-900">Het Unieke 'Walskia'</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Veel beelden en wandobjecten zijn gemaakt van zelf ontwikkeld materiaal met de naam <strong>Walskia</strong>.
+                                Dit kleiachtige materiaal wordt vaak gecombineerd met allerlei andere materialen. 
+                                Het materiaal hoeft niet gebakken te worden, maar is na droging zo hard als keramiek.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERKOOP / PORTFOLIO GALLERY SECTION -->
+    <section id="verkoop" class="py-24 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Originele Kunstwerken</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Collectie</h2>
+                <p class="text-gray-300 mt-3 text-lg">
+                    Ontdek handgemaakte ruimtelijke objecten, uniek keramiek en expressieve schilderijen. Klik op een werk voor details of aankoop.
+                </p>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="galleryFilters">
+                <button onclick="filterGallery('all')" class="filter-btn active px-6 py-2.5 rounded-full font-medium transition-all border border-brand-gold bg-brand-gold text-brand-darkred shadow-lg">
+                    <i class="fas fa-th-large mr-2"></i>Alles
+                </button>
+                <button onclick="filterGallery('ruimtelijk')" class="filter-btn px-6 py-2.5 rounded-full font-medium transition-all border border-gray-600 text-gray-300 hover:border-brand-gold hover:text-white">
+                    <i class="fas fa-cube mr-2"></i>Ruimtelijke Objecten
+                </button>
+                <button onclick="filterGallery('keramiek')" class="filter-btn px-6 py-2.5 rounded-full font-medium transition-all border border-gray-600 text-gray-300 hover:border-brand-gold hover:text-white">
+                    <i class="fas fa-wine-bottle mr-2"></i>Keramiek
+                </button>
+                <button onclick="filterGallery('schilderijen')" class="filter-btn px-6 py-2.5 rounded-full font-medium transition-all border border-gray-600 text-gray-300 hover:border-brand-gold hover:text-white">
+                    <i class="fas fa-paint-brush mr-2"></i>Schilderijen
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="galleryGrid">
+                <!-- Gallery items rendered via JavaScript below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-gradient-to-br from-teal-900 via-slate-900 to-brand-darkred text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact Info Panel -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Neem Contact Op</span>
+                        <h2 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Vragen of Bestellen?</h2>
+                        <p class="text-gray-300 mt-4 leading-relaxed">
+                            Wilt u meer weten over een kunstwerk, een workshop reserveren of een werk in opdracht laten maken? Stuur gerust een bericht of bel rechtstreeks.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Telefoon / Whatsapp</h4>
+                                <a href="tel:+31615651140" class="text-brand-gold font-bold text-lg hover:underline">+31 6 15651140</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Atelier Locatie</h4>
+                                <p class="text-gray-300 text-sm">Thorbeckestraat 81, Alphen aan den Rijn</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Openingstijden / Lesuren</h4>
+                                <p class="text-gray-300 text-sm">Enkel op afspraak</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="lg:col-span-7 bg-white text-gray-900 rounded-3xl p-8 sm:p-10 shadow-2xl">
+                    <h3 class="font-serif text-2xl font-bold text-brand-darkred mb-6 flex items-center">
+                        <i class="fas fa-paper-plane mr-3 text-brand-orange"></i> Bericht Sturen
+                    </h3>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Uw Naam *</label>
+                                <input type="text" id="name" required placeholder="Saskia Vos" 
+                                       class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mailadres *</label>
+                                <input type="email" id="email" required placeholder="naam@voorbeeld.nl" 
+                                       class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Onderwerp *</label>
+                            <input type="text" id="subject" required placeholder="Aankoop kunstwerk / Vraag over cursus" 
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Uw Bericht *</label>
+                            <textarea id="message" rows="5" required placeholder="Typ hier uw bericht of vragen..." 
+                                      class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn" 
+                                class="w-full py-4 rounded-xl bg-brand-darkred text-white font-bold text-lg hover:bg-brand-red transition-all shadow-lg flex items-center justify-center space-x-2">
+                            <span>Verstuur Bericht</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-11 h-11 rounded-full bg-brand-gold flex items-center justify-center text-brand-darkred font-serif font-bold text-2xl shadow-inner transform group-hover:rotate-180 transition-transform duration-300">
+                        <image src="images/logo.png" alt="Dunja Creatief Logo" class="w-8 h-8 object-contain">
+                    </div>
+                    <span class="font-serif text-2xl font-bold text-white">Dunja Creatief</span>
+                </div>
+
+                <ul class="flex flex-wrap justify-center gap-6 text-sm">
+                    <li><a href="#home" class="hover:text-brand-gold transition-colors">Home</a></li>
+                    <li><a href="#overMij" class="hover:text-brand-gold transition-colors">Over Mij</a></li>
+                    <li><a href="#verkoop" class="hover:text-brand-gold transition-colors">Verkoop</a></li>
+                    <li><a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                </ul>
+
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.facebook.com/saskia.vos.167" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-darkred hover:text-white transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.google.com/maps/place/Halverwege+41,+2402+NK+Alphen+aan+den+Rijn" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; <span id="yearSpan"></span> Dunja Creatief - Saskia Vos. Alle rechten voorbehouden.</p>
+                <p>Beeldend Kunstenares & Creativiteitscentrum Leiderdorp / Leiden</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ARTWORK LIGHTBOX MODAL -->
+    <div id="artModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="relative bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl text-gray-900 flex flex-col md:flex-row my-8">
+            <button onclick="closeArtModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/60 hover:bg-black text-white rounded-full flex items-center justify-center transition-colors">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+
+            <!-- Image display -->
+            <div class="md:w-1/2 bg-gray-900 flex items-center justify-center relative min-h-[300px]">
+                <img id="modalImg" src="" alt="Kunstwerk" class="max-h-[80vh] w-full object-contain">
+            </div>
+
+            <!-- Content display -->
+            <div class="md:w-1/2 p-8 flex flex-col justify-between space-y-6">
+                <div>
+                    <span id="modalCategory" class="inline-block px-3 py-1 bg-amber-100 text-brand-darkred rounded-full text-xs font-bold uppercase tracking-wider mb-2">Category</span>
+                    <h3 id="modalTitle" class="font-serif text-3xl font-bold text-gray-900">Artwork Title</h3>
+                    <p id="modalPrice" class="text-2xl font-bold text-brand-orange mt-2">€0,-</p>
+                    <p id="modalDesc" class="text-gray-600 mt-4 leading-relaxed text-sm">
+                        Uniek handgemaakt origineel werk door Saskia Vos in haar atelier.
+                    </p>
+                </div>
+
+                <div class="space-y-3 pt-4 border-t border-gray-100">
+                    <button id="modalBuyBtn" onclick="buyArtworkFromModal()" 
+                            class="w-full py-4 rounded-xl bg-brand-darkred text-white font-bold hover:bg-brand-red transition-all shadow-lg flex items-center justify-center space-x-2">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Interesse? Neem Contact Op!</span>
+                    </button>
+                    <p class="text-xs text-center text-gray-400">Vrijblijvend informeren of een bezichtiging afspreken in het atelier.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Artwork Data extracted from archived original
+        const artworks = [
+            { id: 1, title: 'Abstract', price: '€55,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop', desc: 'Keramisch abstract vormgegeven sculptuur met prachtige glazuurstructuur.' },
+            { id: 2, title: 'Abstract Blauw', price: '€55,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?q=80&w=800&auto=format&fit=crop', desc: 'Diepblauwe tinten in een gestroomlijnde organische vorm.' },
+            { id: 3, title: 'Abstract Oranje', price: '€55,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop', desc: 'Warme oranje en gouden glazuureffecten op keramiek.' },
+            { id: 4, title: 'Blauw Potje', price: '€15,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=800&auto=format&fit=crop', desc: 'Sfeervol ambachtelijk gedraaid en gedecoreerd potje.' },
+            { id: 5, title: 'Boekenkast', price: '€75,-', category: 'ruimtelijk', img: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop', desc: 'Uniek ruimtelijk kunstobject vervaardigd uit Walskia en hout.' },
+            { id: 6, title: 'Collage met Vis', price: '€150,-', category: 'schilderijen', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop', desc: 'Gelaagd gemengd techniek schilderij met rijke texturen en vismotief.' },
+            { id: 7, title: 'Droomhuis', price: '€150,-', category: 'schilderijen', img: 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800&auto=format&fit=crop', desc: 'Sfeervol kleurrijk schilderij vol verbeelding en symboliek.' },
+            { id: 8, title: 'Egyptenaar', price: '€55,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop', desc: 'Geïnspireerd op oude Egyptische vormen en aardetinten.' },
+            { id: 9, title: 'Ganesha', price: '€45,-', category: 'ruimtelijk', img: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop', desc: 'Gedetailleerd ruimtelijk beeld van Ganesha uit Walskia klei.' },
+            { id: 10, title: 'Hagedis', price: '€95,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop', desc: 'Levendig keramiek beeldje van een hagedis met fijne patronen.' },
+            { id: 11, title: 'Herfst Groep', price: '€95,-', category: 'ruimtelijk', img: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop', desc: 'Warm ensemble van natuurlijke vormen en warme herfsttinten.' },
+            { id: 12, title: 'Lantaarnhuis', price: '€65,-', category: 'ruimtelijk', img: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop', desc: 'Sfeervol lichtobject/huisje voor waxinelichtjes.' },
+            { id: 13, title: 'Nature', price: '€150,-', category: 'schilderijen', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop', desc: 'Expressieve compositie geïnspireerd door organische natuurvormen.' },
+            { id: 14, title: 'Nijlpaard', price: '€45,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop', desc: 'Karaktervol keramieken nijlpaardje met een glimlach.' },
+            { id: 15, title: 'Pico', price: '€200,-', category: 'ruimtelijk', img: 'https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=800&auto=format&fit=crop', desc: 'Groot expressief ruimtelijk kunstwerk, eyecatcher voor elk interieur.' },
+            { id: 16, title: 'Sasha', price: '€150,-', category: 'schilderijen', img: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop', desc: 'Kleurrijk portret met intuïtief gevoel voor emotie.' },
+            { id: 17, title: 'Toren', price: '€22,50', category: 'keramiek', img: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?q=80&w=800&auto=format&fit=crop', desc: 'Slank keramiek torenobject met subtiele details.' },
+            { id: 18, title: 'Water Vrouw', price: '€125,-', category: 'keramiek', img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop', desc: 'Vloeiende vrouwelijke figuur in koele glazuurtinten.' }
+        ];
+
+        let selectedArtwork = null;
+
+        // Render Gallery Items
+        function renderGallery(items) {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'group bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700/60 hover:border-brand-gold transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-1';
+                card.onclick = () => openArtModal(item);
+
+                card.innerHTML = `
+                    <div class="relative h-64 overflow-hidden bg-gray-950">
+                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                        <span class="absolute top-3 right-3 bg-gray-950/80 text-brand-gold font-bold px-3 py-1 rounded-full text-sm shadow">
+                            ${item.price}
+                        </span>
+                        <span class="absolute bottom-3 left-3 text-xs uppercase tracking-wider bg-brand-darkred/90 text-white px-2.5 py-0.5 rounded-md">
+                            ${item.category}
+                        </span>
+                    </div>
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-brand-gold transition-colors">${item.title}</h3>
+                            <p class="text-xs text-gray-400 mt-0.5">Saskia Vos Origineel</p>
+                        </div>
+                        <div class="w-9 h-9 rounded-full bg-white/10 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-darkred transition-all">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Gallery Logic
+        function filterGallery(cat) {
+            // Update Active Class on buttons
+            document.querySelectorAll('#galleryFilters .filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-gold', 'text-brand-darkred', 'border-brand-gold');
+                btn.classList.add('border-gray-600', 'text-gray-300');
+            });
+
+            event.currentTarget.classList.add('bg-brand-gold', 'text-brand-darkred', 'border-brand-gold');
+            event.currentTarget.classList.remove('border-gray-600', 'text-gray-300');
+
+            if (cat === 'all') {
+                renderGallery(artworks);
+            } else {
+                const filtered = artworks.filter(item => item.category === cat);
+                renderGallery(filtered);
+            }
+        }
+
+        // Lightbox Modal Functions
+        function openArtModal(item) {
+            selectedArtwork = item;
+            document.getElementById('modalImg').src = item.img;
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalPrice').textContent = item.price;
+            document.getElementById('modalCategory').textContent = item.category;
+            document.getElementById('modalDesc').textContent = item.desc;
+            document.getElementById('artModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArtModal() {
+            document.getElementById('artModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function buyArtworkFromModal() {
+            closeArtModal();
+            if (selectedArtwork) {
+                const subjectInput = document.getElementById('subject');
+                subjectInput.value = `Interesse in aankoop: ${selectedArtwork.title} (${selectedArtwork.price})`;
+                
+                const contactSec = document.getElementById('contact');
+                contactSec.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function openCourseModal(type) {
+            const data = courseData[type];
+            if (!data) return;
+
+            const modalContent = document.getElementById('courseModalContent');
+            modalContent.innerHTML = `
+                <span class="inline-block px-3 py-1 bg-amber-100 text-brand-darkred rounded-full text-xs font-bold uppercase tracking-wider">
+                    ${data.tag}
+                </span>
+                <h3 class="font-serif text-3xl font-bold text-gray-900">${data.title}</h3>
+                <p class="text-gray-600 leading-relaxed">${data.desc}</p>
+
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 mt-4 space-y-2">
+                    <h4 class="font-bold text-gray-900">Wat kun je verwachten?</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        ${data.points.map(p => `<li class="flex items-start"><i class="fas fa-check text-brand-orange mt-1 mr-2"></i><span>${p}</span></li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                    <button onclick="closeCourseModal(); document.getElementById('subject').value = 'Inschrijving / Vraag over ${data.title}'; document.getElementById('contact').scrollIntoView({behavior:'smooth'});" 
+                            class="flex-1 py-3.5 rounded-xl bg-brand-darkred text-white font-bold hover:bg-brand-red transition-all shadow-md text-center">
+                        Meld je direct aan
+                    </button>
+                    <button onclick="closeCourseModal()" class="px-6 py-3.5 rounded-xl border border-gray-300 text-gray-700 font-medium hover:bg-gray-100">
+                        Sluiten
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('courseModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCourseModal() {
+            document.getElementById('courseModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Contact Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Verzenden...`;
+
+            setTimeout(() => {
+                alert(`Hartelijk dank, ${name}! Uw bericht is succesvol verzonden. Saskia neemt zo snel mogelijk contact met u op.`);
+                document.getElementById('contactForm').reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<span>Verstuur Bericht</span> <i class="fas fa-paper-plane"></i>`;
+            }, 1000);
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll to Top Button Visibility
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        // Initialize On Load
+        window.onload = function() {
+            renderGallery(artworks);
+            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+        };
+
+        // Runs automatically every time the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            const logo = document.getElementById('rotating-logo');
+            if (logo) {
+                // Instantly set the logo to the random angle (no transition yet)
+                logo.style.transition = 'none';
+                logo.style.transform = 'rotate(720deg)';
+                
+                // Force a browser reflow so the starting position registers
+                logo.offsetHeight; 
+                
+                // Animate smoothly back to 0 degrees (its normal upright position)
+                logo.style.transition = 'transform 3s cubic-bezier(0.16, 1, 0.3, 1)';
+                logo.style.transform = 'rotate(0deg)';
+            }
+        });
+    
+    </script>
+</body>
+</html>
