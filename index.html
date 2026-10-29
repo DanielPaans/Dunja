@@ -151,12 +151,12 @@
                 
                 <img src="images/new_dunja.png" 
                     alt="Dunja Creatief Title" 
-                    class="relative z-10 w-256 h-128 object-contain mx-auto block" />
+                    class="relative z-10 w-full h-auto object-contain mx-auto block" />
 
                 <img id="rotating-logo" 
                     src="images/logo.png" 
-                    alt="Dunja Creatief Logo" 
-                    class="absolute top-[8%] left-[36.2%] -translate-x-1/2 -translate-y-1/2 w-24 h-24 object-contain z-30 transition-transform duration-1000 ease-out mx-auto" />
+                    alt="Dunja Creatief Logo"
+                    class="absolute custom-logo-pos custom-logo-size object-contain z-30 transition-transform duration-1000 ease-out" />
             </div>
             <!-- <div class="relative w-fit mx-auto group">
 
@@ -718,5 +718,53 @@
         });
     
     </script>
+    <style>
+        /* Responsive rotating logo */
+        .custom-logo-pos {
+            top: -5%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+        }
+
+        .custom-logo-size {
+            width: 3rem;
+            height: 3rem;
+        }
+
+
+        @media (min-width: 465px) {
+            .custom-logo-pos {
+                top: 3%;
+                left: 36.2%;
+            }
+            .custom-logo-size {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .custom-logo-pos {
+                top: 6%;
+                left: 36.2%;
+            }
+            .custom-logo-size {
+                width: 5.5rem;
+                height: 5.5rem;
+            }
+        }
+
+        /* Your Custom Breakpoint at 1000px (or whatever exact pixel value you want!) */
+        @media (min-width: 1000px) {
+            .custom-logo-pos {
+                top: 8%;
+                left: 36.2%;
+            }
+            .custom-logo-size {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+    </style>
 </body>
 </html>
