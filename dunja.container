@@ -1,0 +1,10 @@
+[Container]
+Image=dunja
+ContainerName=dunja
+PublishPort=8082:80
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
