@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "title": "Abstract",
+    "price": "€55,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop",
+    "desc": "Keramisch abstract vormgegeven sculptuur met prachtige glazuurstructuur."
+  },
+  {
+    "id": 2,
+    "title": "Abstract Blauw",
+    "price": "€55,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?q=80&w=800&auto=format&fit=crop",
+    "desc": "Diepblauwe tinten in een gestroomlijnde organische vorm."
+  },
+  {
+    "id": 3,
+    "title": "Abstract Oranje",
+    "price": "€55,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop",
+    "desc": "Warme oranje en gouden glazuureffecten op keramiek."
+  },
+  {
+    "id": 4,
+    "title": "Blauw Potje",
+    "price": "€15,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=800&auto=format&fit=crop",
+    "desc": "Sfeervol ambachtelijk gedraaid en gedecoreerd potje."
+  },
+  {
+    "id": 5,
+    "title": "Boekenkast",
+    "price": "€75,-",
+    "category": "ruimtelijk",
+    "img": "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop",
+    "desc": "Uniek ruimtelijk kunstobject vervaardigd uit Walskia en hout."
+  },
+  {
+    "id": 6,
+    "title": "Collage met Vis",
+    "price": "€150,-",
+    "category": "schilderijen",
+    "img": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
+    "desc": "Gelaagd gemengd techniek schilderij met rijke texturen en vismotief."
+  },
+  {
+    "id": 7,
+    "title": "Droomhuis",
+    "price": "€150,-",
+    "category": "schilderijen",
+    "img": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=800&auto=format&fit=crop",
+    "desc": "Sfeervol kleurrijk schilderij vol verbeelding en symboliek."
+  },
+  {
+    "id": 8,
+    "title": "Egyptenaar",
+    "price": "€55,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop",
+    "desc": "Geïnspireerd op oude Egyptische vormen en aardetinten."
+  },
+  {
+    "id": 9,
+    "title": "Ganesha",
+    "price": "€45,-",
+    "category": "ruimtelijk",
+    "img": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop",
+    "desc": "Gedetailleerd ruimtelijk beeld van Ganesha uit Walskia klei."
+  },
+  {
+    "id": 10,
+    "title": "Hagedis",
+    "price": "€95,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
+    "desc": "Levendig keramiek beeldje van een hagedis met fijne patronen."
+  },
+  {
+    "id": 11,
+    "title": "Herfst Groep",
+    "price": "€95,-",
+    "category": "ruimtelijk",
+    "img": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop",
+    "desc": "Warm ensemble van natuurlijke vormen en warme herfsttinten."
+  },
+  {
+    "id": 12,
+    "title": "Lantaarnhuis",
+    "price": "€65,-",
+    "category": "ruimtelijk",
+    "img": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop",
+    "desc": "Sfeervol lichtobject/huisje voor waxinelichtjes."
+  },
+  {
+    "id": 13,
+    "title": "Nature",
+    "price": "€150,-",
+    "category": "schilderijen",
+    "img": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop",
+    "desc": "Expressieve compositie geïnspireerd door organische natuurvormen."
+  },
+  {
+    "id": 14,
+    "title": "Nijlpaard",
+    "price": "€45,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop",
+    "desc": "Karaktervol keramieken nijlpaardje met een glimlach."
+  },
+  {
+    "id": 15,
+    "title": "Pico",
+    "price": "€200,-",
+    "category": "ruimtelijk",
+    "img": "https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=800&auto=format&fit=crop",
+    "desc": "Groot expressief ruimtelijk kunstwerk, eyecatcher voor elk interieur."
+  },
+  {
+    "id": 16,
+    "title": "Sasha",
+    "price": "€150,-",
+    "category": "schilderijen",
+    "img": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop",
+    "desc": "Kleurrijk portret met intuïtief gevoel voor emotie."
+  },
+  {
+    "id": 17,
+    "title": "Toren",
+    "price": "€22,50",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?q=80&w=800&auto=format&fit=crop",
+    "desc": "Slank keramiek torenobject met subtiele details."
+  },
+  {
+    "id": 18,
+    "title": "Water Vrouw",
+    "price": "€125,-",
+    "category": "keramiek",
+    "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+    "desc": "Vloeiende vrouwelijke figuur in koele glazuurtinten."
+  }
+]

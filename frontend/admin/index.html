@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Beheer kunstwerken | Dunja Creatief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/">Dunja <span>Creatief</span></a>
+      <a class="back-link" href="/">← Naar de website</a>
+    </header>
+
+    <section id="loginView" class="login-card">
+      <p class="eyebrow">Dunja Creatief</p>
+      <h1>Beheeromgeving</h1>
+      <p class="muted">Log in om de kunstwerken in de collectie te beheren.</p>
+      <a class="primary-button google-login-button" href="/api/auth/google">Doorgaan met Google</a>
+      <p id="loginError" class="error" role="alert"></p>
+      <p class="muted small">Alleen het vooraf ingestelde Google-account heeft toegang.</p>
+    </section>
+
+    <section id="dashboardView" hidden>
+      <div class="heading-row">
+        <div>
+          <p class="eyebrow">Collectiebeheer</p>
+          <h1>Kunstwerken</h1>
+          <p class="muted">Pas de collectie aan. Wijzigingen zijn direct zichtbaar op de website.</p>
+        </div>
+        <button id="logoutButton" class="secondary-button" type="button">Uitloggen</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel editor-panel">
+          <div class="panel-heading">
+            <h2 id="formHeading">Nieuw kunstwerk</h2>
+            <button id="resetButton" class="text-button" type="button">Formulier wissen</button>
+          </div>
+          <form id="artworkForm" class="stack">
+            <input type="hidden" id="artworkId">
+            <label>Titel<input id="title" maxlength="120" required placeholder="Bijv. Abstract Blauw"></label>
+            <div class="two-columns">
+              <label>Prijs<input id="price" maxlength="40" required placeholder="Bijv. €55,-"></label>
+              <label>Categorie
+                <select id="category" required>
+                  <option value="keramiek">Keramiek</option>
+                  <option value="ruimtelijk">Ruimtelijke objecten</option>
+                  <option value="schilderijen">Schilderijen</option>
+                </select>
+              </label>
+            </div>
+            <label>Beschrijving<textarea id="desc" rows="4" maxlength="2000" placeholder="Vertel iets over dit kunstwerk..."></textarea></label>
+            <label>Afbeelding <span class="label-hint">JPG, PNG of WebP · maximaal 10 MB</span>
+              <input id="image" type="file" accept="image/jpeg,image/png,image/webp">
+            </label>
+            <div id="previewWrap" class="preview-wrap" hidden>
+              <img id="imagePreview" alt="Voorbeeld van de afbeelding">
+              <span id="imageHint" class="muted">Huidige afbeelding</span>
+            </div>
+            <p id="formError" class="error" role="alert"></p>
+            <div class="form-actions">
+              <button class="primary-button" type="submit" id="saveButton">Kunstwerk toevoegen</button>
+              <button class="secondary-button" type="button" id="cancelButton" hidden>Annuleren</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel collection-panel">
+          <div class="panel-heading">
+            <div><h2>Huidige collectie</h2><p id="artworkCount" class="muted small">Laden...</p></div>
+            <button id="refreshButton" class="icon-button" type="button" aria-label="Vernieuwen" title="Vernieuwen">↻</button>
+          </div>
+          <div id="artworkList" class="artwork-list" aria-live="polite"></div>
+        </section>
+      </div>
+      <p id="notice" class="notice" role="status"></p>
+    </section>
+  </main>
+  <script src="/admin/admin.js" defer></script>
+</body>
+</html>
