@@ -1,0 +1,22 @@
+[Unit]
+Description=Dunja API container
+Wants=dunja.network
+After=dunja.network
+
+[Container]
+ContainerName=dunja-api
+Image=dunja-api.build
+
+Network=dunja.network
+NetworkAlias=api
+
+EnvironmentFile=%h/Documents/dunja/.env
+Environment=DATA_DIR=/data
+
+Volume=%h/Documents/dunja/data:/data:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

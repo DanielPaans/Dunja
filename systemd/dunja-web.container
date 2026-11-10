@@ -1,0 +1,21 @@
+[Unit]
+Description=Dunja Nginx web container
+Requires=dunja-api.service
+After=dunja-api.service
+
+[Container]
+ContainerName=dunja-web
+Image=docker.io/library/nginx:1.27-alpine
+
+Network=dunja.network
+
+PublishPort=127.0.0.1:8080:80
+
+Volume=%h/Documents/dunja/frontend:/usr/share/nginx/html:ro,Z
+Volume=%h/Documents/dunja/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro,Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

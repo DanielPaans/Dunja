@@ -1,0 +1,6 @@
+[Unit]
+Description=Build Dunja API image
+
+[Build]
+ImageTag=localhost/dunja-api:latest
+SetWorkingDirectory=%h/Documents/dunja/backend
